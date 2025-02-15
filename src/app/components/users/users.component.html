@@ -1,1 +1,123 @@
-<p>users works!</p>
+<div class="container-fluid">
+
+    <div class="row px-2 flex border-bottom">
+        <div class="alert">
+            <a href="#" class="alert-link"> User </a>
+            <button type="button" class="btn btn-outline-primary float-end ms-2" (click)="refreshFn()">
+                Refresh
+            </button>
+            <button type="button" class="btn btn-outline-primary float-end" data-bs-toggle="modal"
+                data-bs-target="#addUserModal" (click)="openCreateModal()"> Add User
+            </button>
+        </div>
+    </div>
+
+    <div class="row px-3 pt-2">
+        @if(userError){
+        <h4 class="p-3 text-center">{{userError}} </h4>
+        }@else{
+        <table class="table table-info table-bordered border">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(user of userList; track user){
+                <tr>
+                    <td>{{user.name}} </td>
+                    <td>{{user.email}} </td>
+                    <td>
+                        <button class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-toggle="modal"
+                            data-bs-target="#addUserModal" (click)="editUserModel(user)">Edit
+                        </button>
+                        <button class="btn btn-warning ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                            (click)="deleteUserModel(user)">Delete
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+
+    <!-- Add / Update Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <form [formGroup]="createUserForm" (submit)="onCreateUser()">
+                    <div class="modal-header">
+                        @if(!updateUserData) {<h1 class="modal-title fs-5" id="addUserModalLabel">Add User</h1>}
+                        @else{<h1 class="modal-title fs-5" id="addUserModalLabel">Update User</h1>}
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row gy-3 overflow-hidden">
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="dheeraj"
+                                        formControlName="name" required>
+                                    <label for="name" class="form-label">Name</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="name@example.com" formControlName="email" required>
+                                    <label for="email" class="form-label">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12" *ngIf="!updateUserData?._id">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" name="password" id="password" value=""
+                                        placeholder="Password" formControlName="password" required>
+                                    <label for="password" class="form-label">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #closebutton>
+                            Close
+                        </button>
+                        @if(!updateUserData){
+                        <button type="submit" class="btn btn-primary" [disabled]="createUserForm.invalid">
+                            Create
+                        </button>
+                        }@else{
+                        <button type="button" class="btn btn-primary" (click)="updateUser()"> Update
+                        </button>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-top">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">Delete User</h1>
+                    <button type="button" class="btn-close" #closeDeleteModel data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-black">Are you sure want to delete this user
+                        <label for="" class="text-primary text-capitalize"> {{deleteUserData?.name}}
+                        </label> ?
+                    </h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="deleteUser()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
