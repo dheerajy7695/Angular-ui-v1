@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-
   signForm!: FormGroup
   loginResponse: any;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
