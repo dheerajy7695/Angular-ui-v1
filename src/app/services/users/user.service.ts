@@ -7,9 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private authURL = 'http://localhost:4000/api/auth'
-  private userURL = 'http://localhost:4000/api/users'
+  // private authURL = 'http://localhost:4000/api/auth'
+  // private userURL = 'http://localhost:4000/api/users'
 
+  private authURL = 'https://node-server-v1.onrender.com/api/auth';
+  private userURL = 'https://node-server-v1.onrender.com/api/users';
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +34,5 @@ export class UserService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${this.userURL}/delete/${id}`);
   }
-
 
 }
