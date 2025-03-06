@@ -76,6 +76,42 @@
     padding: 12px;
 }
 
+@media screen and (max-width: 787px) {
+    .carousel-caption {
+        position: absolute;
+        top: 40%;
+        left: 36%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        font-size: 2rem;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+    }
+
+    .caption-heading {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 2rem;
+        text-align: left;
+    }
+
+    .caption-desc {
+        font-family: var(--global--font-body);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--global--color-gray);
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .cap-btn {
+        text-align: left;
+        border-radius: 2px solid blue;
+    }
+}
+
 /* ---------info---------- */
 
 .info-col {
@@ -345,4 +381,11 @@
     letter-spacing: 0;
     line-height: 23px;
     color: #757575;
+}
+
+/* --------------------------------------Appointement----------------------- */
+
+.appointement-img {
+    /* width: inherit; */
+    width: -webkit-fill-available;
 }

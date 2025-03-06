@@ -10,6 +10,7 @@ body {
     font-family: "Roboto", serif;
     /* background-color: #f1fbff; */
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 .cursor-pointer {
