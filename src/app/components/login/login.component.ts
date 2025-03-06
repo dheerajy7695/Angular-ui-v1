@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   signForm!: FormGroup
   loginResponse: any;
+  loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,18 +33,20 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.signForm.valid) {
+      this.loading = true;
       this.userService.login(this.signForm.value).subscribe({
         next: (response) => {
           this.loginResponse = response;
+          this.loading = false;
           if (response?.user?.token) {
             sessionStorage.setItem('token', response.user.token);
             sessionStorage.setItem('login-user', JSON.stringify(response.user));
           }
-          this.router.navigate(['/user']);
+          this.router.navigate(['/home']);
         },
         error: (err) => {
+          this.loading = false;
           alert(err?.error?.message)
-          console.log(err);
         }
       })
     }
