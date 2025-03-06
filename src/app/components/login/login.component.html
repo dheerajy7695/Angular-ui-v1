@@ -11,8 +11,8 @@
                             <hr class="border-primary-subtle mb-4">
                             <h2 class="h1 mb-4">We make digital products that drive you to stand out.</h2>
                             <p class="lead mb-5">We write words, take photos, make videos, and interact with artificial
-                                intelligence.</p>
-
+                                intelligence.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -56,6 +56,9 @@
                                         <div class="d-grid">
                                             <button class="btn btn-primary btn-lg" type="submit"
                                                 [disabled]="signForm.invalid">Log in now
+                                                <div class="spinner-border" role="status" *ngIf="loading">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
                                             </button>
                                         </div>
                                     </div>
