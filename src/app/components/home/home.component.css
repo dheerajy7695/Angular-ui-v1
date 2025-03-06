@@ -1,0 +1,348 @@
+/* #hero-section {
+    position: relative;
+}
+
+#info-section {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    z-index: 1;
+} */
+
+.section-padding {
+    padding: 50px 50px;
+}
+
+.carousel-item {
+    position: relative;
+    height: 400px;
+}
+
+.hero-sec .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 40%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-item.active .carousel-caption {
+    opacity: 1;
+}
+
+.hero-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.item-img {
+    height: 500px;
+}
+
+.caption-heading {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 4rem;
+    text-align: left;
+}
+
+.caption-desc {
+    font-family: var(--global--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--global--color-gray);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.cap-btn {
+    text-align: left;
+    border-radius: 2px solid blue;
+}
+
+.cap-btn .btn-cls {
+    padding: 12px;
+}
+
+/* ---------info---------- */
+
+.info-col {
+    padding: 25px;
+    color: #fff;
+    background: #0c75fb;
+    border-right: 1px solid lightcoral;
+    text-align: center;
+}
+
+.info-col p {
+    padding: 0px 26px 0px 26px;
+}
+
+.info-col .list-unstyled li {
+    display: flex;
+    text-transform: capitalize;
+    justify-content: space-around;
+}
+
+/* ----------------- full-quoats--------------------------- */
+
+.quoats-bg-image {
+    background-image: url('https://preview.colorlib.com/theme/drcare/images/bg_3.jpg.webp');
+    background-position: 14% -566.1px !important;
+    padding: 5em 0;
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.content {
+    color: white;
+    text-align: left;
+}
+
+.btn-yellow {
+    background-color: yellow;
+    border-color: yellow;
+    color: black;
+}
+
+/* --------------------About us----------------- */
+.about-us {
+    background-color: #f8f9fa;
+}
+
+.about-us .about-head {
+    font-weight: normal;
+    color: #000;
+    margin-bottom: 1.5rem !important;
+}
+
+.about-us .about-sub-head {
+    font-size: 30px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    font-weight: normal;
+    color: #000;
+}
+
+.about-us .about-desc {
+    font-size: 16px;
+    padding: 1em 0;
+    color: #666;
+    line-height: 1.71429;
+}
+
+.about-us img {
+    transition: transform 0.3 ease-in-out;
+}
+
+.about-us img:hover {
+    transform: scale(1.05);
+}
+
+.about-us .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    line-height: 2.5;
+}
+
+.about-us .btn-primary {
+    transition: all 0.3s ease;
+}
+
+.about-us .btn-primary:hover {
+    transform: translate(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* -------------------Service------------------ */
+
+#service-section .service-head {
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+#service-section .service-desc {
+    color: #666;
+}
+
+.service-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-color: #3c97e8;
+    border-radius: 50%;
+}
+
+.service-icon :hover {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-color: #61d564;
+    border-radius: 50%;
+}
+
+.service-icon i {
+    font-size: 3em;
+    color: #fff;
+}
+
+.service-heading {
+    padding: 11px;
+    font-weight: 400;
+}
+
+.service-desc {
+    font-size: 15px;
+}
+
+.service-learn-more {
+    text-decoration: none;
+}
+
+.service-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    /* border-width: 1px !important; */
+    /* --bs-border-opacity: 1; */
+    /* border-color: rgba(var(--bs-info-rgb), var(--bs-border-opacity)) !important; */
+    box-shadow: var(--bs-box-shadow-sm) !important;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+/* -----------------------------Doctor------------------ */
+
+#doctors-section .doctors-head {
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+#doctors-section .doctors-desc {
+    color: #666;
+}
+
+.doctors-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-width: 1px !important;
+    --bs-border-opacity: 1;
+    border-color: rgba(var(--bs-info-rgb), var(--bs-border-opacity)) !important;
+    box-shadow: var(--bs-box-shadow-sm) !important;
+}
+
+.doctors-card:hover {
+    transform: scale(1.05);
+}
+
+.doctor-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6591ca;
+    color: #fff;
+    border-radius: 50%;
+}
+
+/* -------------------site section-------------- */
+
+.site-bg-image {
+    justify-content: center;
+    justify-content: center;
+    background-color: #bcc9db;
+    /* background-image: url('https://quanticalabs.com/wp_themes/medicenter/files/2018/10/image_02-1.jpg?id=3791'); */
+}
+
+.site-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    background-color: #3c97e8;
+    border-radius: 50%;
+}
+
+
+/* ---------------Blog -section --------------- */
+
+.blog .blog-head {
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+.blog .blog-desc {
+    color: #666;
+}
+
+.blog .blog-card .date {
+    display: inline-block;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    background: #1A76D1;
+}
+
+.blog .blog-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 24px;
+    color: #2c2d3f;
+}
+
+.blog .blog-card h2 a {
+    color: #2c2d3f;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.blog .blog-card h2 a:hover {
+    color: #1A76D1;
+}
+
+.blog .blog-card p {
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 23px;
+    color: #757575;
+}
