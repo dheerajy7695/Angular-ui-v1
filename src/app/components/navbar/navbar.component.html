@@ -1,18 +1,27 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/home">MARSH</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
-            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home"> <span class="text-warning">Medicenter</span>Care </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsAccord"
+            aria-controls="navbarsAccord" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample04">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <div class="collapse navbar-collapse" id="navbarsAccord">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="/home">Home</a>
+                    <a class="nav-link " routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="/user">User</a>
+                    <a class="nav-link " routerLink="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/user">User</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown"
@@ -24,9 +33,21 @@
                     </ul>
                 </li>
             </ul>
-            <form>
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </form>
+
+            <ul class="navbar-nav ms-auto mb-lg-0" *ngIf="!tokenloginData">
+                <li class="nav-item">
+                    <a class="login-link" routerLink="/login">Login</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-lg-0 cursor-pointer" *ngIf="tokenloginData">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="logoutdropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">{{tokenloginData.name}}</a>
+                    <ul class="dropdown-menu" aria-labelledby="logoutdropdown">
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

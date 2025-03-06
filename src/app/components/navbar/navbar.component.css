@@ -1,0 +1,39 @@
+.navbar {
+    border-bottom: 1px solid #c2e1ec;
+}
+
+.navbar-nav a {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-brand {
+    color: #000;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+    color: #000;
+}
+
+.navbar-light .navbar-nav .navbar-link {
+    color: #000;
+}
+
+.nav-item .nav-link {
+    margin-left: 1rem;
+}
+
+.nav-item .login-link {
+    text-decoration: none;
+    border-radius: 23px;
+    padding: 9px 18px;
+    background-color: #4557ff;
+    color: #fff;
+}
