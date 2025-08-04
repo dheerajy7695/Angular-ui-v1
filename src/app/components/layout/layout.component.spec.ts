@@ -1,6 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
+import { ActivatedRoute, provideRouter, ROUTES } from '@angular/router';
+import { of } from 'rxjs';
+
+const mockActivatedRoute = {
+  snapshot: {
+    paramMap: {
+      get: (key: string) => '42'
+    }
+  },
+  params: of({ id: '42' })
+};
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -8,9 +19,15 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      imports: [LayoutComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: mockActivatedRoute
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LayoutComponent);
     component = fixture.componentInstance;
