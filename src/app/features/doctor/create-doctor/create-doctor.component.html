@@ -1,0 +1,358 @@
+<div class="container-fluid pb-4">
+    <div class="row py-4 px-5 border-bottom ">
+        <ul class="list-unstyled text-uppercase text-primary d-flex gap-2 mb-0 cursor-pointer p-0">
+            <li class="">
+                <a class="text-decoration-none" routerLink="/doctors">Doctors /</a>
+            </li>
+            <li class="">
+                <a class="h5 text-decoration-none" routerLink="/doctors/create">Create</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row py-4 px-5">
+        <div class="shadow p-5 mb-5 bg-body rounded">
+            <ul class="nav nav-tabs nav-fill mb-3" id="tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-personal-details" data-bs-toggle="tab"
+                        data-bs-target="#personal-details" type="button" role="tab" aria-controls="personal-details"
+                        aria-selected="true">
+                        <i class="bi bi-briefcase me-3"></i> Personal Details
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-profile" data-bs-toggle="tab" data-bs-target="#profile"
+                        type="button" role="tab" aria-controls="profile" aria-selected="true">
+                        <i class="bi bi-person-circle me-3"></i> Profile and Bio
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-schedule" data-bs-toggle="tab" data-bs-target="#schedule"
+                        type="button" role="tab" aria-controls="schedule" aria-selected="false">
+                        <i class="bi bi-calendar-event me-3"></i> Schedule
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-account" data-bs-toggle="tab" data-bs-target="#account"
+                        type="button" role="tab" aria-controls="account" aria-selected="false">
+                        <i class="bi bi-lock me-3"></i> Account Details
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content p-3 border border-top-0 rounded-bottom" id="tabsContent">
+
+                <div class="tab-pane fade show active" id="personal-details" role="tabpanel"
+                    aria-labelledby="tab-personal-details">
+                    <div class="row mb-2">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                                    aria-label="First Name" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-person-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                                    aria-label="Last Name" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-person-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <div class="input-group mb-2">
+                                <input id="dob" type="date" class="form-control" placeholder="Enter D.O.B"
+                                    aria-label="Date of Birth" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-cake2-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <div class="input-group mb-2">
+                                <select id="gender" class="form-select" aria-label="Gender">
+                                    <option selected>Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-0-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="email" class="form-label">Email ID</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="email" placeholder="Enter Email ID"
+                                    aria-label="Email ID" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="mobile" class="form-label">Mobile Number</label>
+                            <div class="input-group mb-2">
+                                <input type="number" class="form-control" id="mobile" placeholder="Enter Mobile Number"
+                                    aria-label="Mobile Number" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-telephone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="maritalStatus" class="form-label">Marital Status</label>
+                            <div class="input-group mb-2">
+                                <select id="maritalStatus" class="form-select" aria-label="Marital Status">
+                                    <option selected>Select Marital Status</option>
+                                    <option value="single">Single</option>
+                                    <option value="married">Married</option>
+                                    <option value="divorced">Divorced</option>
+                                </select>
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-person-check"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="qualification" class="form-label">Qualification</label>
+                            <div class="input-group mb-2">
+                                <select id="qualification" class="form-select" aria-label="Qualification">
+                                    <option selected>Select Qualification</option>
+                                    <option value="mbbs">MBBS</option>
+                                    <option value="md">MD</option>
+                                    <option value="ms">MS</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-mortarboard"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="designation" class="form-label">Designation</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="designation" placeholder="Enter Designation"
+                                    aria-label="Designation" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-person-badge"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="bloodGroup" class="form-label">Blood Group</label>
+                            <div class="input-group mb-2">
+                                <select id="bloodGroup" class="form-select" aria-label="Blood Group">
+                                    <option selected>Select Blood Group</option>
+                                    <option value="a+">A+</option>
+                                    <option value="a-">A-</option>
+                                    <option value="b+">B+</option>
+                                    <option value="b-">B-</option>
+                                    <option value="o+">O+</option>
+                                    <option value="o-">O-</option>
+                                    <option value="ab+">AB+</option>
+                                    <option value="ab-">AB-</option>
+                                </select>
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-droplet-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="createId" class="form-label">Create ID</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="createId" placeholder="Create Unique ID"
+                                    aria-label="Create ID" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-shield-check"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="address" class="form-label">Address</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="address" placeholder="Enter Address"
+                                    aria-label="Address" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-house"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="country" class="form-label">Country</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="country" placeholder="Enter Country"
+                                    aria-label="Country" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-flag"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="state" class="form-label">State</label>
+                            <div class="input-group mb-2">
+                                <select id="state" class="form-select" aria-label="State">
+                                    <option selected>Select State</option>
+                                    <option value="India">India</option>
+                                    <option value="a-">A-</option>
+                                    <option value="b+">B+</option>
+                                    <option value="b-">B-</option>
+                                    <option value="o+">O+</option>
+                                    <option value="o-">O-</option>
+                                    <option value="ab+">AB+</option>
+                                    <option value="ab-">AB-</option>
+                                </select>
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-pin-map"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="city" class="form-label">City</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="city" placeholder="Enter City"
+                                    aria-label="City" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="postalCode" class="form-label">Postal Code</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="postalCode" placeholder="Enter Postal Code"
+                                    aria-label="Postal Code" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-building"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="tab-profile">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="image" class="form-label">Upload Profile Picture</label>
+                            <div class="input-group mb-2">
+                                <input type="file" class="form-control" id="image" aria-label="image"
+                                    (change)="uploadImage($event)">
+                                <label class="picture" for="picture__input" tabIndex="0">
+                                    <img *ngIf="imageSrc" [src]="imageSrc" alt="Doctor Image" class="img-fluid">
+                                </label>
+                                <input type="file" name="picture__input" id="picture__input"
+                                    (change)="uploadImage($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <label for="bio" class="form-label">Write Bio</label>
+                            <div class="input-group mb-2">
+                                <textarea class="form-control" id="bio" rows="4" placeholder="Enter Bio"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="tab-schedule">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                            <div *ngFor="let day of days" class="col">
+                                <label class="form-label">{{ day }}</label>
+                                <div class="input-group mb-3">
+                                    <select class="form-select" [(ngModel)]="availability[day].from">
+                                        <option value="" disabled selected hidden>From</option>
+                                        <option *ngFor="let time of timeSlots" [value]="time">{{ time }}</option>
+                                    </select>
+                                    <select class="form-select" [(ngModel)]="availability[day].to">
+                                        <option value="" disabled selected hidden>To</option>
+                                        <option *ngFor="let time of timeSlots" [value]="time">{{ time }}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="tab-account">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="username" placeholder="Enter username"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                                <button class="btn btn-outline-info" type="button">
+                                    <i class="bi bi-person-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group mb-2">
+                                <input id="confirm-password" type="password" class="form-control"
+                                    placeholder="Enter password">
+                                <button class="btn btn-outline-info" type="button"
+                                    onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password'; this.querySelector('i').classList.toggle('bi-eye'); this.querySelector('i').classList.toggle('bi-eye-slash');">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <div class="input-group mb-2">
+                                <input id="passwordField" type="password" class="form-control"
+                                    placeholder="Enter password">
+                                <button class="btn btn-outline-info" type="button"
+                                    onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password'; this.querySelector('i').classList.toggle('bi-eye'); this.querySelector('i').classList.toggle('bi-eye-slash');">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end gap-3 mt-4">
+                    <button type="button" class="btn btn-outline-info btn-sm text-black me-2">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary me-2">
+                        Create Doctor Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
