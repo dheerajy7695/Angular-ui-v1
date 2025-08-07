@@ -1,0 +1,11 @@
+<div *ngIf="showErrors" class="text-danger">
+    <small *ngIf="control?.errors?.['required']">This field is required.</small>
+    <small *ngIf="control?.errors?.['email']">Please enter a valid email address.</small>
+    <small *ngIf="control?.errors?.['minlength']">
+        Minimum length is {{ requiredLength }} characters.
+    </small>
+    <small *ngIf="control?.errors?.['maxlength']">
+        Maximum length is {{ maxLength }} characters.
+    </small>
+    <small *ngIf="control?.errors?.['pattern']">Invalid format.</small>
+</div>

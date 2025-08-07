@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { AdminsComponent } from './features/admins/admins.component';
 import { DoctorsComponent } from './features/doctor/doctors/doctors.component';
-import { CreateDoctorComponent } from './features/doctor/create-doctor/create-doctor.component';
+import { CreateEditDoctorComponent } from './features/doctor/create-edit-doctor/create-edit-doctor.component';
 
 export const routes: Routes = [
     {
@@ -50,7 +50,7 @@ export const routes: Routes = [
             },
             {
                 path: 'doctors/create',
-                loadComponent: () => import('./features/doctor/create-doctor/create-doctor.component').then(m => m.CreateDoctorComponent),
+                loadComponent: () => import('./features/doctor/create-edit-doctor/create-edit-doctor.component').then(m => m.CreateEditDoctorComponent),
                 canActivate: [authGuard]
             }
         ]

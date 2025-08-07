@@ -16,6 +16,7 @@ export class DoctorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDoctors();
+    // this.getAllDoctors();
   }
 
   loadDoctors() {
@@ -23,20 +24,32 @@ export class DoctorsComponent implements OnInit {
       if (!response || !Array.isArray(response)) {
         console.error('No doctors data found');
       } else {
-        console.log('Doctors data fetched successfully');
         this.doctors = response || [];
-        console.log(this.doctors);
+        this.getAllDoctors();
       }
     });
   }
 
-  viewDoctor(doctor: any): void {
-    console.log('Viewing doctor:', doctor);
+  getAllDoctors() {
+    this.doctorsService.getAllDoctors().subscribe(response => {
+      if (!response) {
+        console.error('No doctors data found');
+      } else {
+        this.doctors.push(response.doctors[0]);
+        console.log('Doctors loaded:', this.doctors);
+      }
+    });
   }
 
   editDoctor(doctor: any): void {
     console.log('Editing doctor:', doctor);
   }
+
+
+  viewDoctor(doctor: any): void {
+    console.log('Viewing doctor:', doctor);
+  }
+
 
   deleteDoctor(doctor: any): void {
     console.log('Deleting doctor:', doctor);
