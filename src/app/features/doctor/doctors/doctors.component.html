@@ -6,12 +6,12 @@
         <div class="col-md-8 d-flex flex-wrap justify-content-end align-items-center gap-2 mt-3 mt-md-0">
             <div class="input-group input-group-md" style="max-width: 280px;">
                 <input type="text" class="form-control" placeholder="Search doctors..." aria-label="Search"
-                    (input)="onSearch()">
+                    (input)="searchDoctors()">
                 <button class="btn btn-outline-primary" type="button" (click)="searchDoctors()">
-                    <i class="bi bi-search"></i> </button>
+                    <i class="bi bi-search"></i>
+                </button>
             </div>
-            <button class="btn btn-outline-primary btn-md" (click)="refreshDoctors()"><i
-                    class="bi bi-arrow-repeat"></i></button>
+            <button class="btn btn-outline-primary btn-md" (click)="refreshDoctors()"><i class="bi bi-arrow-repeat"></i></button>
             <button class="btn btn-outline-primary btn-md" (click)="addDoctor()">Add Doctor</button>
         </div>
     </div>
@@ -19,14 +19,16 @@
     <div class="row g-4 px-5">
         <div class="col-12 col-sm-6 col-lg-3" *ngFor="let doctor of doctors">
             <div class="card doctor-card h-100 d-flex flex-column justify-content-between">
-                <img [src]="doctor.img" class="card-img-top doctor-img" alt="{{ doctor.name }}" />
+                <img [src]="doctor.img ? doctor.img: doctor.image" class="card-img-top doctor-img"
+                    alt="{{ doctor.name }}" />
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ doctor.name }}</h5>
-                    <p class="card-text mb-1"><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+                    <h5 class="card-title">Dr. {{ doctor.firstName }} {{ doctor.lastName }}</h5>
+                    <p class="card-text mb-1"><strong>CreateId:</strong> {{ doctor.createId }}</p>
+                    <p class="card-text mb-1"><strong>Specialization:</strong> {{ doctor.qualification }}</p>
+                    <p class="card-text mb-1"><strong>Designation:</strong> {{ doctor.designation }}</p>
                     <p class="card-text mb-1"><strong>Experience:</strong> {{ doctor.experience_years }} years</p>
-                    <p class="card-text mb-1"><strong>Rating:</strong> ⭐ {{ doctor.rating }}/5</p>
-                    <p class="card-text"><strong>Phone:</strong> {{ doctor.phone }}</p>
+                    <p class="card-text"><strong>Phone:</strong> {{ doctor.mobile }}</p>
                 </div>
 
                 <div class="card-footer bg-white border-top-0 d-flex ">

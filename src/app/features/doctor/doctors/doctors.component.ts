@@ -15,19 +15,7 @@ export class DoctorsComponent implements OnInit {
   constructor(private doctorsService: DoctorsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadDoctors();
-    // this.getAllDoctors();
-  }
-
-  loadDoctors() {
-    this.doctorsService.getDoctors().subscribe(response => {
-      if (!response || !Array.isArray(response)) {
-        console.error('No doctors data found');
-      } else {
-        this.doctors = response || [];
-        this.getAllDoctors();
-      }
-    });
+    this.getAllDoctors();
   }
 
   getAllDoctors() {
@@ -35,45 +23,54 @@ export class DoctorsComponent implements OnInit {
       if (!response) {
         console.error('No doctors data found');
       } else {
-        this.doctors.push(response.doctors[0]);
-        console.log('Doctors loaded:', this.doctors);
+        this.doctors = response.doctors || [];
       }
     });
   }
 
-  editDoctor(doctor: any): void {
-    console.log('Editing doctor:', doctor);
-  }
-
-
-  viewDoctor(doctor: any): void {
-    console.log('Viewing doctor:', doctor);
-  }
-
-
-  deleteDoctor(doctor: any): void {
-    console.log('Deleting doctor:', doctor);
-  }
-
   addDoctor() {
     this.router.navigate(['/doctors/create']);
-    console.log('Navigating to create doctor page');
+  }
+
+  editDoctor(doctor: any): void {
+    console.log('Editing doctor:', doctor);
+    this.router.navigate(['/doctors/edit', doctor._id]);
+  }
+
+  deleteDoctor(doctor: any): void {
+    this.doctorsService.delete(doctor._id).subscribe({
+      next: (response) => {
+        if (response) {
+          this.getAllDoctors();
+        } else {
+          alert('Failed to delete doctor');
+        }
+      },
+      error: (err) => {
+        alert('An error occurred while deleting the doctor: ' + err.message);
+      }
+    });
+  }
+
+  refreshDoctors() {
+    this.getAllDoctors();
+  }
+
+  viewDoctor(doctor: any): void {
+    this.router.navigate(['/doctors/profile', doctor._id]);
   }
 
   searchDoctors(): void {
     console.log('Searching doctors with query:');
   }
 
-  refreshDoctors(): void {
-    console.log('Searching doctors wit:');
-  }
+
 
   exportDoctors(): void {
-    console.log('Searching doctors wit:');
+    console.log('Exporting doctors with filters:');
   }
 
   onSearch(): void {
     console.log('Searching doctors with query:');
-    // Implement search logic here
   }
 }

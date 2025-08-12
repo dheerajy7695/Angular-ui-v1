@@ -5,7 +5,8 @@
                 <a class="text-decoration-none" routerLink="/doctors">Doctors /</a>
             </li>
             <li class="">
-                <a class="h5 text-decoration-none" routerLink="/doctors/create">Create</a>
+                <a *ngIf="!isEdit" class="h5 text-decoration-none" routerLink="/doctors/create">Create</a>
+                <a *ngIf="isEdit" class="h5 text-decoration-none" routerLink="/doctors/edit">Update</a>
             </li>
         </ul>
     </div>
@@ -92,7 +93,7 @@
                                     <div class="input-group mb-2">
                                         <select id="gender" class="form-select" aria-label="Gender"
                                             formControlName="gender">
-                                            <option selected>Select Gender</option>
+                                            <option value="" disabled selected hidden>Select Gender</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                             <option value="other">Other</option>
@@ -139,7 +140,7 @@
                                     <div class="input-group mb-2">
                                         <select id="maritalStatus" class="form-select" aria-label="Marital Status"
                                             formControlName="maritalStatus">
-                                            <option selected>Select Marital Status</option>
+                                            <option value="" disabled hidden selected>Select Marital Status</option>
                                             <option value="single">Single</option>
                                             <option value="married">Married</option>
                                             <option value="divorced">Divorced</option>
@@ -157,10 +158,10 @@
                                     <div class="input-group mb-2">
                                         <select id="qualification" class="form-select" aria-label="Qualification"
                                             formControlName="qualification">
-                                            <option selected>Select Qualification</option>
+                                            <option value="" disabled hidden selected>Select Qualification</option>
+                                            <option value="mbbs, md">MBBS, MD</option>
+                                            <option value="mbbs, ms">MBBS, MS</option>
                                             <option value="mbbs">MBBS</option>
-                                            <option value="md">MD</option>
-                                            <option value="ms">MS</option>
                                             <option value="other">Other</option>
                                         </select>
                                         <button class="btn btn-outline-info" type="button">
@@ -176,9 +177,13 @@
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <label for="designation" class="form-label">Designation</label>
                                     <div class="input-group mb-2">
-                                        <input type="text" class="form-control" id="designation"
-                                            placeholder="Enter Designation" aria-label="Designation"
-                                            aria-describedby="basic-addon1" formControlName="designation">
+                                        <select id="designation" class="form-select" aria-label="Designation"
+                                            formControlName="designation">
+                                            <option value="" disabled hidden selected>Select Designation</option>
+                                            <option value="Doctor">Doctor</option>
+                                            <option value="Head of the Department">Head of the Department</option>
+                                            <option value="Other">Other</option>
+                                        </select>
                                         <button class="btn btn-outline-info" type="button">
                                             <i class="bi bi-person-badge"></i>
                                         </button>
@@ -191,7 +196,7 @@
                                     <div class="input-group mb-2">
                                         <select id="bloodGroup" class="form-select" aria-label="Blood Group"
                                             formControlName="bloodGroup">
-                                            <option selected>Select Blood Group</option>
+                                            <option value="" disabled hidden selected>Select Blood Group</option>
                                             <option value="a+">A+</option>
                                             <option value="a-">A-</option>
                                             <option value="b+">B+</option>
@@ -242,9 +247,12 @@
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <label for="country" class="form-label">Country</label>
                                     <div class="input-group mb-2">
-                                        <input type="text" class="form-control" id="country" placeholder="Enter Country"
-                                            aria-label="Country" aria-describedby="basic-addon1"
+                                        <select class="form-select" id="country" aria-label="Country"
                                             formControlName="country">
+                                            <option value="" disabled selected hidden>Select Country</option>
+                                            <option *ngFor="let country of countries" [value]="country"> {{ country }}
+                                            </option>
+                                        </select>
                                         <button class="btn btn-outline-info" type="button">
                                             <i class="bi bi-flag"></i>
                                         </button>
@@ -257,7 +265,7 @@
                                     <div class="input-group mb-2">
                                         <select id="state" class="form-select" aria-label="State"
                                             formControlName="state">
-                                            <option selected>Select State</option>
+                                            <option value="" disabled selected hidden>Select State</option>
                                             <option value="India">India</option>
                                             <option value="a-">A-</option>
                                             <option value="b+">B+</option>
@@ -316,13 +324,10 @@
                             <div class="col-12 col-sm-6 col-lg-3">
                                 <label for="image" class="form-label">Upload Profile Picture</label>
                                 <div class="input-group mb-2">
-                                    <input type="file" class="form-control" id="image" aria-label="image"
-                                        (change)="uploadImage($event)" formControlName="image">
-                                    <label class="picture" for="picture__input" tabIndex="0">
-                                        <img *ngIf="imageSrc" [src]="imageSrc" alt="Doctor Image" class="img-fluid">
-                                    </label>
-                                    <input type="file" name="picture__input" id="picture__input"
-                                        (change)="uploadImage($event)" formControlName="image">
+                                    <input type="file" (change)="onFileChange($event)" /><br />
+                                    <div *ngIf="imagePreview">
+                                        <img [src]="imagePreview" width="250" />
+                                    </div>
                                 </div>
                                 <app-form-error [control]="doctorForm.get('image')"
                                     [submitted]="submitted"></app-form-error>
@@ -380,7 +385,7 @@
                                 <app-form-error [control]="doctorForm.get('username')"
                                     [submitted]="submitted"></app-form-error>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="col-12 col-sm-6 col-lg-3" *ngIf="!isEdit">
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group mb-2">
                                     <input id="confirm-password" type="password" class="form-control"
@@ -394,7 +399,7 @@
                                 <app-form-error [control]="doctorForm.get('password')"
                                     [submitted]="submitted"></app-form-error>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="col-12 col-sm-6 col-lg-3" *ngIf="!isEdit">
                                 <label for="confirm-password" class="form-label">Confirm Password</label>
                                 <div class="input-group mb-2">
                                     <input id="passwordField" type="password" class="form-control"
@@ -408,7 +413,6 @@
                                 <app-form-error [control]="doctorForm.get('confirmPassword')"
                                     [submitted]="submitted"></app-form-error>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -418,8 +422,9 @@
                         <button type="button" class="btn btn-outline-info btn-sm text-black me-2" (click)="cancel()">
                             Cancel
                         </button>
-                        <button type="submit" class="btn btn-primary me-2">
-                            Create Doctor Profile
+                        <button *ngIf="!isEdit" type="submit" class="btn btn-primary me-2"> Create Doctor Profile
+                        </button>
+                        <button *ngIf="isEdit" type="submit" class="btn btn-primary me-2"> Update Doctor Profile
                         </button>
                     </div>
                 </div>

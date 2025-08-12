@@ -52,6 +52,16 @@ export const routes: Routes = [
                 path: 'doctors/create',
                 loadComponent: () => import('./features/doctor/create-edit-doctor/create-edit-doctor.component').then(m => m.CreateEditDoctorComponent),
                 canActivate: [authGuard]
+            },
+            {
+                path: 'doctors/edit/:id',
+                loadComponent: () => import('./features/doctor/create-edit-doctor/create-edit-doctor.component').then(m => m.CreateEditDoctorComponent),
+                canActivate: [authGuard]
+            },
+            {
+                path: 'doctors/profile/:id',
+                loadComponent: () => import('./features/doctor/details/details.component').then(m => m.DetailsComponent),
+                canActivate: [authGuard]
             }
         ]
     }

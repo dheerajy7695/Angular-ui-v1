@@ -34,4 +34,8 @@ export class DoctorsService {
     return this.http.delete(`${this.userURL}/delete/${id}`);
   }
 
+  getDoctorById(id: string): Observable<any> {
+    return this.http.get(`${this.userURL}/get/${id}`);
+  }
+
 }
